@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AjouterEmplacement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AjouterPlante.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AjouterProvenance.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AjouterUtilisateur.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DetailsPlante.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DetailsUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GererUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="HistoriquePlantePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="HisPlantes.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ImportPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ModifierPlante.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ModifierUtilisateur.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PageConnexion.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PageInventaire.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="RetirerPlante.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TableauDeBord.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TableauDebordUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AjouterEmplacement.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AjouterPlante.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AjouterProvenance.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AjouterUtilisateur.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DetailsPlante.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DetailsUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GererUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="HistoriquePlantePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="HisPlantes.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ImportPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ModifierPlante.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ModifierUtilisateur.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PageConnexion.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PageInventaire.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RetirerPlante.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TableauDeBord.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TableauDebordUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

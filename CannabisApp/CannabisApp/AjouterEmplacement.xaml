@@ -1,0 +1,37 @@
+﻿<Page x:Class="CannabisApp.AjouterEmplacement"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:CannabisApp"
+      mc:Ignorable="d"
+      d:DesignHeight="700" d:DesignWidth="1100"
+      Title="AjouterEmplacement">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                <GradientStop Color="#00FF7F" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Border Background="White" CornerRadius="10" Padding="20" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
+                <TextBlock Text="Ajouter un Emplacement" FontSize="20" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,5"/>
+                <Grid>
+                    <TextBox x:Name="NomEmplacement" Height="30" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,5" FontSize="16"/>
+                    <TextBlock x:Name="PlaceholderTextBlock" Text="Nom de l'emplacement" Foreground="Gray" VerticalAlignment="Center" Margin="5,0,0,0" IsHitTestVisible="False" />
+                </Grid>
+                <Button Content="Ajouter" Height="40" Width="150" HorizontalAlignment="Center" Margin="0,5,0,5" Click="Ajouter_Click">
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#0D98BA" Offset="0.0"/>
+                            <GradientStop Color="#00FF7F" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

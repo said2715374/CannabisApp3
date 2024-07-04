@@ -1,0 +1,118 @@
+﻿<Page x:Class="CannabisApp.AjouterPlante"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:CannabisApp"
+      mc:Ignorable="d"
+      d:DesignHeight="700" d:DesignWidth="1100"
+      Title="AjouterPlante">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                <GradientStop Color="#00FF7F" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Border Background="White" CornerRadius="10" Padding="20" Margin="20" Width="1070" Height="670" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="900">
+                <DockPanel LastChildFill="False" Margin="0,0,0,5">
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+                        <Button Content="Retour" Click="Back_Click" Style="{StaticResource RoundedButton}" Width="80" Height="30" Margin="0,0,10,0">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                    <GradientStop Color="#00FF7F" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                        <Button Content="Home" Click="Home_Click" Style="{StaticResource RoundedButton}" Width="80" Height="30" Margin="0,0,10,0">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                    <GradientStop Color="#00FF7F" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                    <Button Content="Importer" Click="Importer_Click" Style="{StaticResource RoundedButton}" Width="104" Height="35" Margin="10,0"/>
+                </DockPanel>
+                <TextBlock Text="Ajouter une Plante" FontSize="40" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Description" Margin="0,10,5,10" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                    <TextBox x:Name="Description" Height="30" Style="{StaticResource RoundedTextBox}" Grid.Row="0" Grid.Column="1" Margin="0,10,0,5" FontSize="16"/>
+
+                    <TextBlock Text="Stade" Margin="0,10,5,10" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                    <ComboBox x:Name="StadeComboBox" Height="30" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" FontSize="16">
+                        <ComboBoxItem Content="Initiation"/>
+                        <ComboBoxItem Content="Microdissection"/>
+                        <ComboBoxItem Content="Magenta"/>
+                        <ComboBoxItem Content="Double magenta"/>
+                        <ComboBoxItem Content="Hydroponie"/>
+                    </ComboBox>
+
+                    <TextBlock Text="Identification" Margin="0,10,5,10" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                    <TextBox x:Name="Identification" Height="30" Style="{StaticResource RoundedTextBox}" Grid.Row="2" Grid.Column="1" Margin="0,5,0,5" FontSize="16"/>
+
+                    <TextBlock Text="Provenance" Margin="0,0,166,0" VerticalAlignment="Center" FontSize="16" Width="134" Grid.Row="3"/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center">
+
+                        <ComboBox x:Name="ProvenanceComboBox" Height="30" Width="200" DisplayMemberPath="Ville" SelectedValuePath="IdProvenance" Margin="0,10,5,10" FontSize="16"/>
+                        <Button Content="Ajouter" Width="100" Height="30" Click="AjouterProvenance_Click"/>
+                    </StackPanel>
+
+                    <TextBlock Text="Quantité (kg)" Margin="0,10,5,10" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                    <TextBox x:Name="Quantite" Height="30" Style="{StaticResource RoundedTextBox}" Grid.Row="4" Grid.Column="1" Margin="0,5,0,5" FontSize="16"/>
+
+                    <TextBlock Text="Date d'expiration" Margin="0,10,5,10" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                    <DatePicker x:Name="DateExpiration" Height="30" Grid.Row="5" Grid.Column="1" Margin="0,5,0,5" FontSize="16"/>
+
+                    <TextBlock Text="État de santé" Margin="0,10,5,10" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                    <ComboBox x:Name="EtatSanteComboBox" Height="30" Grid.Row="6" Grid.Column="1" Margin="0,10,0,10" FontSize="16">
+                        <ComboBoxItem Content="Plante en grand danger" Background="Red" Foreground="White" Tag="1"/>
+                        <ComboBoxItem Content="Plante en mauvaise santé" Background="Orange" Foreground="White" Tag="2"/>
+                        <ComboBoxItem Content="Plante en santé moyenne" Background="Yellow" Foreground="Black" Tag="3"/>
+                        <ComboBoxItem Content="Plante en bonne santé" Background="Green" Foreground="White" Tag="4"/>
+                    </ComboBox>
+
+                    <TextBlock Text="Entreposage" Margin="0,10,5,10" Grid.Row="7" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center">
+                        <ComboBox x:Name="EmplacementComboBox" Height="30" Width="200" Margin="0,0,5,0" SelectionChanged="EmplacementComboBox_SelectionChanged" />
+                        <Button Content="Ajouter" Width="100" Height="30" Click="AjouterEmplacement_Click"/>
+                    </StackPanel>
+
+                    <TextBlock Text="Note" Margin="0,10,5,10" Grid.Row="8" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                    <TextBox x:Name="NoteTextBox" Height="100" Style="{StaticResource RoundedTextBox}" Grid.Row="8" Grid.Column="1" Margin="0,10,0,10" FontSize="16" TextWrapping="Wrap" AcceptsReturn="True"/>
+                </Grid>
+
+                <Button Content="Ajouter" Height="40" Width="150" HorizontalAlignment="Center" Margin="0,10,0,0" Style="{StaticResource RoundedButton}" Click="Ajouter_Click">
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#0D98BA" Offset="0.0"/>
+                            <GradientStop Color="#00FF7F" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

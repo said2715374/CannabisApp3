@@ -1,0 +1,92 @@
+﻿<Page x:Class="CannabisApp.DetailsUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      d:DesignHeight="700" d:DesignWidth="1100"
+      Title="DetailsUser">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                <GradientStop Color="#00FF7F" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border Background="White" CornerRadius="10" Padding="20" Margin="25" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="900" Height="600">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Button Content="Retour" Click="Back_Click" Style="{StaticResource RoundedButton}" Width="80" Height="30" Margin="0,15,10,0">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                <GradientStop Color="#00FF7F" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Content="Home" Click="Home_Click" Style="{StaticResource RoundedButton}" Width="80" Height="30" Margin="0,15,10,0">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                <GradientStop Color="#00FF7F" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+                <TextBlock Text="Détails Utilisateur" FontSize="30" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,50,0,120"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Nom d'utilisateur:" Margin="0,15,10,5" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                    <TextBlock x:Name="NomUtilisateurText"  Text="{Binding NomUtilisateur}" Margin="0,15,0,5" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
+
+                    <TextBlock Text="Rôle:" Margin="0,15,10,5" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                    <TextBlock x:Name="RoleText" Text="{Binding NomRole}" Margin="0,15,0,5" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
+                </Grid>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="30,150,0,0">
+                    <Button Content="Modifier cet utilisateur" Width="150" Height="40" Margin="5" FontSize="14" Style="{StaticResource RoundedButton}" Click="Modifier_Click">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                <GradientStop Color="#00FF7F" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Content="Retirer cet utilisateur" Width="150" Height="40" Margin="5" FontSize="14" Style="{StaticResource RoundedButton}" Click="Retirer_Click">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                <GradientStop Color="#00FF7F" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Content="Ajouter Un Autre Utilisateur" Width="150" Height="40" Margin="5" FontSize="14" Style="{StaticResource RoundedButton}" Click="AjouterAutre_Click">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                <GradientStop Color="#00FF7F" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Content="Voir l'Historique" Width="150" Height="40" Margin="5" FontSize="14" Style="{StaticResource RoundedButton}" Click="VoirHistorique_Click">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                <GradientStop Color="#00FF7F" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

@@ -1,0 +1,90 @@
+﻿<Page x:Class="CannabisApp.RetirerPlante"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CannabisApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1100"
+      Title="RetirerPlante">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                <GradientStop Color="#00FF7F" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Border Background="White" CornerRadius="10" Padding="20" Margin="20" Width="1070" Height="670" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="900">
+                <DockPanel LastChildFill="False" Margin="0,0,0,5">
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+                        <Button Content="Retour" Click="Back_Click" Style="{StaticResource RoundedButton}" Width="80" Height="30" Margin="0,0,10,0">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                    <GradientStop Color="#00FF7F" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                        <Button Content="Home" Click="Home_Click" Style="{StaticResource RoundedButton}" Width="80" Height="30" Margin="0,0,10,0">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                    <GradientStop Color="#00FF7F" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </DockPanel>
+                <TextBlock Text="Retirer une Plante" FontSize="40" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,20"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Raison du Retrait" Margin="0,10,5,10" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                    <ComboBox x:Name="RaisonRetraitComboBox" Height="30" Grid.Row="0" Grid.Column="1" Margin="0,10,0,10" FontSize="16">
+                        <ComboBoxItem Content="DESTRUCTION PAR AUTOCLAVE"/>
+                        <ComboBoxItem Content="TRANSFERT CLIENT"/>
+                        <ComboBoxItem Content="TRANSFERT AUTRE CENTRE"/>
+                        <ComboBoxItem Content="AUTRE (INDIQUER LA RAISON DANS NOTE)"/>
+                        <ComboBoxItem Content="TRANSFERT POUR ANALYSE"/>
+                        <ComboBoxItem Content="ANALYSE"/>
+                        <ComboBoxItem Content="CONTAMINATION"/>
+                        <ComboBoxItem Content="LIMITATION DE LA LICENCE"/>
+                        <ComboBoxItem Content="PERTE DE L'ÉCHANTILLION"/>
+                        <ComboBoxItem Content="PLANTULES N'ONT PAS SURVÉCU À L'EXPÉRIENCE"/>
+                        <ComboBoxItem Content="AUTRE (INDIQUER LA RAISON DANS NOTE)"/>
+                    </ComboBox>
+
+                    <TextBlock Text="Responsable Décontamination" Margin="0,10,5,10" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+                        <ComboBox x:Name="ResponsableComboBox" Height="30" Width="200" Margin="0,0,5,0" >
+                          <ComboBoxItem Content="Khadija Houssein Youssouf"/>
+                          <ComboBoxItem Content="Alexandre Tromas"/>
+                        </ComboBox>
+
+                        <Button Content="Ajouter" Width="100" Height="30" Click="AjouterResponsable_Click"/>
+                    </StackPanel>
+                </Grid>
+
+                <Button Content="Retirer" Height="40" Width="150" HorizontalAlignment="Center" Margin="0,10,0,0" Style="{StaticResource RoundedButton}" Click="Retirer_Click">
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#0D98BA" Offset="0.0"/>
+                            <GradientStop Color="#00FF7F" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
