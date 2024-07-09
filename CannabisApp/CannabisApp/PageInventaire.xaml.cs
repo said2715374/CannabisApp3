@@ -158,6 +158,11 @@ namespace CannabisApp
         {
             
         }
+        private void Archive_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigation vers la page des archives
+            NavigationService.Navigate(new Archive());
+        }
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
