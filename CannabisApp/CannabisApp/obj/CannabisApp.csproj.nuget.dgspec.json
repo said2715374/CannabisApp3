@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Documents\\GitHub\\CanabisApp2\\CannabisApp\\CannabisApp\\CannabisApp.csproj": {}
+    "C:\\Users\\louni\\OneDrive\\Documents\\GitHub\\CannabisApp3\\CannabisApp\\CannabisApp\\CannabisApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Documents\\GitHub\\CanabisApp2\\CannabisApp\\CannabisApp\\CannabisApp.csproj": {
+    "C:\\Users\\louni\\OneDrive\\Documents\\GitHub\\CannabisApp3\\CannabisApp\\CannabisApp\\CannabisApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\CanabisApp2\\CannabisApp\\CannabisApp\\CannabisApp.csproj",
+        "projectUniqueName": "C:\\Users\\louni\\OneDrive\\Documents\\GitHub\\CannabisApp3\\CannabisApp\\CannabisApp\\CannabisApp.csproj",
         "projectName": "CannabisApp",
-        "projectPath": "C:\\Users\\user\\Documents\\GitHub\\CanabisApp2\\CannabisApp\\CannabisApp\\CannabisApp.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Documents\\GitHub\\CanabisApp2\\CannabisApp\\CannabisApp\\obj\\",
+        "projectPath": "C:\\Users\\louni\\OneDrive\\Documents\\GitHub\\CannabisApp3\\CannabisApp\\CannabisApp\\CannabisApp.csproj",
+        "packagesPath": "C:\\Users\\louni\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\louni\\OneDrive\\Documents\\GitHub\\CannabisApp3\\CannabisApp\\CannabisApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\louni\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

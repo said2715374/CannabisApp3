@@ -26,7 +26,7 @@ namespace CannabisApp
 
         private void ChargerPlante(int planteId)
         {
-            string connectionString = "Server=LAPTOP-K1T841TP\\SQLEXPRESS;Database=NomDeLaBaseDeDonnées;User Id=LAPTOP-K1T841TP\\user;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-OE3OFRF\\SQLEXPRESS;Database=NomDeLaBaseDeDonnées;User Id=DESKTOP-OE3OFRF\\user;Trusted_Connection=True;";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try

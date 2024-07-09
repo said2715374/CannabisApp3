@@ -10,6 +10,7 @@
 //------------------------------------------------------------------------------
 
 using CannabisApp;
+using CannabisApp.Converters;
 using System;
 using System.Diagnostics;
 using System.Windows;

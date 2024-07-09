@@ -8,12 +8,9 @@
       d:DesignHeight="700" d:DesignWidth="1100"
       Title="Inventaire">
 
-    
-        <Page.Resources>
-            <local:QRCodeImageConverter x:Key="QRCodeImageConverter"/>
-        </Page.Resources>
-
-    
+    <Page.Resources>
+        <local:QRCodeImageConverter x:Key="QRCodeImageConverter"/>
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -48,13 +45,17 @@
                             </LinearGradientBrush>
                         </Button.Background>
                     </Button>
+                    <Button Content="Archive" Click="Archive_Click" Style="{StaticResource RoundedButton}" Width="100" Height="30" Margin="10,0,0,0" HorizontalAlignment="Right">
+                        <Button.Background>
+                            <SolidColorBrush Color="Black"/>
+                        </Button.Background>
+                    </Button>
                 </DockPanel>
 
                 <ListView x:Name="PlantesListView" Width="1000" Height="500" Margin="0,0,0,10" MouseDoubleClick="PlantesListView_MouseDoubleClick" SelectionChanged="PlantesListView_SelectionChanged">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Nom" Width="auto" DisplayMemberBinding="{Binding identification}" />
-
                             <GridViewColumn Header="État de santé" Width="auto">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
@@ -87,11 +88,9 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-
                             <GridViewColumn Header="Provenance" Width="auto" DisplayMemberBinding="{Binding emplacement}" />
                             <GridViewColumn Header="Date de création" Width="auto" DisplayMemberBinding="{Binding cree_le}" />
                             <GridViewColumn Header="Date d'expiration" Width="auto" DisplayMemberBinding="{Binding date_expiration}" />
-
                             <GridViewColumn Header="Code QR" Width="100">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
@@ -107,7 +106,6 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-
                         </GridView>
                     </ListView.View>
                 </ListView>
