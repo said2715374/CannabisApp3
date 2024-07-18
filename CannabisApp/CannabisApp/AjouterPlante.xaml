@@ -88,11 +88,9 @@
                         <Button Content="Ajouter" Width="100" Height="30" Click="AjouterProvenance_Click"/>
                     </StackPanel>
 
-                    <TextBlock Text="Quantité (kg)" Margin="0,10,5,10" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
-                    <TextBox x:Name="Quantite" Height="30" Style="{StaticResource RoundedTextBox}" Grid.Row="4" Grid.Column="1" Margin="0,5,0,5" FontSize="16"/>
+                    
 
-                    <TextBlock Text="Date d'expiration" Margin="0,10,5,10" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
-                    <DatePicker x:Name="DateExpiration" Height="30" Grid.Row="5" Grid.Column="1" Margin="0,5,0,5" FontSize="16"/>
+                   
 
                     <TextBlock Text="État de santé" Margin="0,10,5,10" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
                     <ComboBox x:Name="EtatSanteComboBox" Height="30" Grid.Row="6" Grid.Column="1" Margin="0,10,0,10" FontSize="16">

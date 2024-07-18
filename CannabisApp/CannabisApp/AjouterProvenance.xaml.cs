@@ -21,8 +21,12 @@ namespace CannabisApp
     /// </summary>
     public partial class AjouterProvenance : Page
     {
-        public AjouterProvenance()
+        int Num;
+        string Nom;
+        public AjouterProvenance(string name, int num)
         {
+            Num = num;
+            Nom = name;
             InitializeComponent();
         }
 
@@ -93,12 +97,19 @@ namespace CannabisApp
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new AjouterPlante(Nom, Num));
         }
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Num == 1)
+            {
+                NavigationService.Navigate(new TableauDeBord(Nom));
+            }
+            else
+            {
+                NavigationService.Navigate(new TableauDebordUser(Nom));
+            }
         }
     }
 }

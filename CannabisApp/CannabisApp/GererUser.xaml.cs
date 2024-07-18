@@ -9,12 +9,16 @@ namespace CannabisApp
 {
     public partial class GererUser : Page
     {
+        int Num;
+        string Nom;
         private readonly AppDbContext _context;
-        public GererUser()
+        public GererUser(int num, string nom)
         {
             InitializeComponent();
             _context = new AppDbContext();
             LoadUsers();
+            Num = num;
+            Nom = nom;
         }
 
         private void LoadUsers()
@@ -59,18 +63,32 @@ namespace CannabisApp
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            if (Num == 1)
+            {
+                NavigationService.Navigate(new TableauDeBord(Nom));
+            }
+            else
+            {
+                NavigationService.Navigate(new TableauDebordUser(Nom));
+            }
         }
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
-            // Code pour aller à la page d'accueil
+            if (Num == 1)
+            {
+                NavigationService.Navigate(new TableauDeBord(Nom));
+            }
+            else
+            {
+                NavigationService.Navigate(new TableauDebordUser(Nom));
+            }
         }
 
         private void AjouterUtilisateur_Click(object sender, RoutedEventArgs e)
         {
             // Code pour aller à la page AjouterUtilisateur
-            NavigationService.Navigate(new AjouterUtilisateur());
+            NavigationService.Navigate(new AjouterUtilisateur(Num,Nom));
         }
 
         private void UsersListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -83,7 +101,7 @@ namespace CannabisApp
                 // Naviguer vers la page des détails de la plante
                 if (Application.Current.MainWindow is MainWindow mainWindow)
                 {
-                    mainWindow.MainFrame.Navigate(new DetailsUser(userId));
+                    mainWindow.MainFrame.Navigate(new DetailsUser(userId, Num, Nom));
                 }
             }
         }

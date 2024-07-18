@@ -4,6 +4,7 @@ public class plantes
 {
     public int id_plante { get; set; }
    public string description { get; set; }
+    public int Capacite { get; set; }
     public string Quentite { get; set; }
     public string code_qr { get; set; }
     public int id_provenance { get; set; }

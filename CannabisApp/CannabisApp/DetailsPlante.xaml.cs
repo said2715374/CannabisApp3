@@ -15,11 +15,16 @@ namespace CannabisApp
 {
     public partial class DetailsPlante : Page 
     {
+        int Num;
+        string Nom;
+        string NomPlantee;
         private readonly AppDbContext _context;
         private readonly int _planteId;
 
-        public DetailsPlante(int planteId)
+        public DetailsPlante(int planteId, string nom, int type)
         {
+            Nom = nom;
+            Num = type;
             InitializeComponent();
             _context = new AppDbContext();
             _planteId = planteId;
@@ -40,8 +45,8 @@ namespace CannabisApp
 
                     // Requête combinée pour récupérer les informations de la plante et de sa provenance
                     string query = @"
-                 SELECT p.id_plante, p.code_qr, p.id_provenance, p.etat_sante, p.date_expiration, 
-                 p.cree_le, p.stade, p.Note, p.identification, p.id_Entreposage,p.Quentité,p.nombre_plantes_actives,
+                 SELECT p.id_plante, p.code_qr, p.id_provenance, p.etat_sante, 
+                 p.cree_le, p.stade, p.Note, p.identification, p.id_Entreposage,p.nombre_plantes_actives,
                  pr.ville, pr.province, pr.pays,en.emplacement
                  FROM plantes p
                  INNER JOIN provenances pr ON p.id_provenance = pr.id_provenance
@@ -58,11 +63,9 @@ namespace CannabisApp
                         plantes plante = new plantes
                         {
                             id_plante = reader.GetInt32(reader.GetOrdinal("id_plante")),
-                            Quentite = reader.GetString(reader.GetOrdinal("Quentité")),
                             code_qr = reader.GetString(reader.GetOrdinal("code_qr")),
                             id_provenance = reader.GetInt32(reader.GetOrdinal("id_provenance")),
                             etat_sante = reader.GetInt32(reader.GetOrdinal("etat_sante")),
-                            date_expiration = reader.GetDateTime(reader.GetOrdinal("date_expiration")),
                             cree_le = reader.GetDateTime(reader.GetOrdinal("cree_le")),
                             stade = reader.GetString(reader.GetOrdinal("stade")),
                             Note = reader.GetString(reader.GetOrdinal("Note")),
@@ -70,17 +73,15 @@ namespace CannabisApp
                             id_Enterposage = reader.GetInt32(reader.GetOrdinal("id_Entreposage")),
                         };
                         Plante.Add(plante);
-                        
 
+                        NomPlantee = plante.identification;
 
                         // Mettez à jour les contrôles TextBlock avec les informations récupérées
                         NomPlante.Text = plante.identification;
                         EmplacementText.Text = reader.GetString(reader.GetOrdinal("emplacement"));
                         IdProvenanceText.Text = reader.GetString(reader.GetOrdinal("ville")); // Utilisation de la colonne 'ville' de la provenance
                         EtatSanteText.Text = plante.etat_sante.ToString();
-                        NombrePlantesActivesText.Text = plante.Quentite;
                         CreeLeText.Text = plante.cree_le.ToShortDateString();
-                        DateExpirationText.Text = plante.date_expiration.ToShortDateString();
                         StadeText.Text = plante.stade;
                         bool etat = reader.GetBoolean(reader.GetOrdinal("nombre_plantes_actives"));
                         if (etat == true) {
@@ -127,54 +128,25 @@ namespace CannabisApp
         {
             if (Application.Current.MainWindow is MainWindow mainWindow)
             {
-                mainWindow.MainFrame.Navigate(new ModifierPlante(_planteId));
+                mainWindow.MainFrame.Navigate(new ModifierPlante(_planteId, Nom, Num));
             }
         }
 
         private void Retirer_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "Server=LAPTOP-K1T841TP\\SQLEXPRESS;Database=NomDeLaBaseDeDonnées;User Id=LAPTOP-K1T841TP\\user;Trusted_Connection=True;";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-
-                    string query = @"
-                UPDATE plantes
-                SET nombre_plantes_actives = 0
-                WHERE id_plante = @planteId";
-
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@planteId", _planteId);
-
-                    int rowsAffected = command.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Plantes retirer avec succès !");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Aucune plante mise à jour.");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erreur lors de la mise à jour du nombre de plantes actives : " + ex.Message);
-                }
+           
                 if (Application.Current.MainWindow is MainWindow mainWindow)
                 {
-                    mainWindow.MainFrame.Navigate(new RetirerPlante() );
+                    mainWindow.MainFrame.Navigate(new RetirerPlante(_planteId, Nom, Num) );
                 }
-            }
+            
         }
 
         private void AjouterAutre_Click(object sender, RoutedEventArgs e)
         {
             if (Application.Current.MainWindow is MainWindow mainWindow)
             {
-                mainWindow.MainFrame.Navigate(new AjouterPlante());
+                mainWindow.MainFrame.Navigate(new AjouterPlante(Nom, Num));
             }
         }
 
@@ -182,17 +154,24 @@ namespace CannabisApp
         {
             if (Application.Current.MainWindow is MainWindow mainWindow)
             {
-                mainWindow.MainFrame.Navigate(new HisPlantes());
+                mainWindow.MainFrame.Navigate(new HistoriquePlantePage(_planteId));
             }
         }
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new PageInventaire(Nom, Num));
         }
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
-            //NavigationService.Navigate(new TableauDebordUser());
+            if (Num == 1)
+            {
+                NavigationService.Navigate(new TableauDeBord(Nom));
+            }
+            else
+            {
+                NavigationService.Navigate(new TableauDebordUser(Nom));
+            }
         }
 
         private void Imprimer_Click(object sender, RoutedEventArgs e)
@@ -206,16 +185,30 @@ namespace CannabisApp
                     BitmapImage bitmap = QRCodeImage.Source as BitmapImage;
                     if (bitmap != null)
                     {
-                        // Convertir l'image en format compatible avec l'impression
-                        BitmapEncoder encoder = new PngBitmapEncoder();
-                        encoder.Frames.Add(BitmapFrame.Create(bitmap));
+                        // Créer un StackPanel pour contenir l'image QR et le texte
+                        StackPanel printPanel = new StackPanel();
+                        printPanel.Orientation = Orientation.Vertical;
+                        printPanel.HorizontalAlignment = HorizontalAlignment.Center;
+                        printPanel.VerticalAlignment = VerticalAlignment.Center;
 
                         // Créer une nouvelle image à imprimer
                         Image printImage = new Image();
                         printImage.Source = bitmap;
+                        printImage.Margin = new Thickness(0, 0, 0, 20); // Ajouter une marge pour espacer le texte
 
-                        // Imprimer l'image
-                        printDialog.PrintVisual(printImage, "Impression de l'image QR Code");
+                        // Créer un TextBlock pour le texte "said"
+                        TextBlock textBlock = new TextBlock();
+                        textBlock.Text = NomPlantee;
+                        textBlock.HorizontalAlignment = HorizontalAlignment.Center;
+                        textBlock.FontSize = 16; // Taille de la police
+                        textBlock.FontWeight = FontWeights.Bold; // Style de la police
+
+                        // Ajouter l'image et le texte au StackPanel
+                        printPanel.Children.Add(printImage);
+                        printPanel.Children.Add(textBlock);
+
+                        // Imprimer le StackPanel
+                        printDialog.PrintVisual(printPanel, "Impression de l'image QR Code avec texte");
                     }
                     else
                     {
@@ -228,5 +221,6 @@ namespace CannabisApp
                 MessageBox.Show("Erreur lors de l'impression : " + ex.Message);
             }
         }
+
     }
 }

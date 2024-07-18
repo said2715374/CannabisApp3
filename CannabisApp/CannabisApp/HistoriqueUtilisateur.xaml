@@ -1,0 +1,54 @@
+﻿<Page x:Class="CannabisApp.HistoriqueUtilisateur"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CannabisApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HistoriqueUtilisateur">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                <GradientStop Color="#00FF7F" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border Background="White" CornerRadius="10" Padding="20" Margin="20" Width="1070" Height="670" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Width="1000" Height="620">
+                <!-- Navigation Buttons -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Button Content="Retour" Click="Back_Click" Style="{StaticResource RoundedButton}" Width="100" Height="40" Margin="0,0,10,0">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                <GradientStop Color="#00FF7F" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Content="Home" Click="Home_Click" Style="{StaticResource RoundedButton}" Width="100" Height="40" Margin="0,0,20,0">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                <GradientStop Color="#00FF7F" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+
+                <TextBlock Text="Historique de la Plante" FontSize="30" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" Margin="0,20,0,20"/>
+
+                <DataGrid x:Name="HistoriqueDataGrid" AutoGenerateColumns="False" Width="950" Height="450" Margin="0,10,0,10" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="IdHistorique" Header="ID Historique" Binding="{Binding Path=id_historique}" Width="Auto"/>
+                        <DataGridTextColumn x:Name="Plante" Header="ID Plante" Binding="{Binding Path=Identification}" Width="Auto"/>
+                        <DataGridTextColumn x:Name="Action" Header="Action" Binding="{Binding Path=action}" Width="*"/>
+                        <DataGridTextColumn x:Name="Time" Header="Timestamp" Binding="{Binding Path=timestamp}" Width="Auto"/>
+                        <DataGridTextColumn x:Name="utilisateur" Header="ID Utilisateur" Binding="{Binding Path=nom_utilisateur}" Width="Auto"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

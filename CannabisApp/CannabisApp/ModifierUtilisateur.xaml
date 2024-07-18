@@ -59,10 +59,10 @@
                         <TextBox x:Name="NomUtilisateur" Height="30" Style="{StaticResource RoundedTextBox}" Grid.Row="0" Grid.Column="1" Margin="0,15,0,15" FontSize="16"/>
 
                         <TextBlock Text="Mot de Passe" Margin="0,15,10,15" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
-                        <PasswordBox x:Name="MotDePasse" Height="30" Style="{StaticResource RoundedPasswordBox}" Grid.Row="1" Grid.Column="1" Margin="0,15,0,15" FontSize="16"/>
+                        <TextBox x:Name="MotDePasse" Height="30" Style="{StaticResource RoundedTextBox}" Grid.Row="1" Grid.Column="1" Margin="0,15,0,15" FontSize="16"/>
 
                         <TextBlock Text="Rôle" Margin="0,15,10,15" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
-                        <ComboBox x:Name="RoleComboBox" Height="30" DisplayMemberPath="NomRole" SelectedValuePath="nom_role" Grid.Row="2" Grid.Column="1" Margin="0,15,0,15" FontSize="16"/>
+                        <ComboBox x:Name="RoleComboBox" Height="30" DisplayMemberPath="nom_role" SelectedValuePath="id_role" Grid.Row="2" Grid.Column="1" Margin="0,15,0,15" FontSize="16"/>
                     </Grid>
 
                     <Button Content="Modifier" Height="40" Width="150" HorizontalAlignment="Center" Margin="20,30,0,0" Style="{StaticResource RoundedButton}" Click="Modifier_Click">

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:CannabisApp"
       mc:Ignorable="d"
-      d:DesignHeight="700" d:DesignWidth="1100"
+      d:DesignHeight="750" d:DesignWidth="1100"
       Title="Tableau de Bord">
 
     <Grid>
@@ -23,7 +23,7 @@
             <DockPanel Background="White" Height="70" VerticalAlignment="Top">
                 <TextBlock Text="Tableau de Bord" FontSize="30" FontWeight="Bold" Foreground="#0D98BA" VerticalAlignment="Center" Margin="10" DockPanel.Dock="Left"/>
 
-                <TextBox x:Name="SearchTextBox" Width="300" Height="40" Margin="30,0,0,0" VerticalAlignment="Center" Background="#00FF7F" Foreground="#FFFFFF" HorizontalAlignment="Left" Text="Rechercher..." />
+               
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0">
                     <TextBlock x:Name="UsernameTextBlock" Text="NomUtilisateur" FontSize="20" VerticalAlignment="Center" Foreground="#333" Margin="0,0,10,0"/>
@@ -44,8 +44,8 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
                     <Border Background="White" CornerRadius="10" Padding="30" Margin="10">
                         <StackPanel>
-                            <TextBlock Text="Nombre total de plantes" FontSize="24" FontWeight="Bold" Foreground="#333"/>
-                            <TextBlock x:Name="total" FontSize="50" FontWeight="Bold" Foreground="#00FF7F" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="Plantes en mauvaise santé" FontSize="24" FontWeight="Bold" Foreground="#333"/>
+                            <TextBlock x:Name="total" FontSize="50" FontWeight="Bold" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <TextBlock.Text>
                                     <MultiBinding StringFormat="{}{0}/350">
                                         <Binding Path="Count"/>
@@ -70,30 +70,65 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
-                    <Border Background="White" CornerRadius="10" Padding="30" Margin="10">
+                    <Border Background="White" CornerRadius="10" Padding="30" Width="814" Height="308">
                         <StackPanel>
-                            <TextBlock Text="Plantes nécessitant une attention" FontSize="24" FontWeight="Bold" Foreground="#333"/>
-                            <TextBlock x:Name="totalPasBonne" FontSize="50" FontWeight="Bold" Foreground="red" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock.Text>
-                                    <MultiBinding StringFormat="{}{0}">
-                                        <Binding Path="CountPasBonne"/>
-                                    </MultiBinding>
-                                </TextBlock.Text>
-                            </TextBlock>
+                            <TextBlock Text="Capacité de l'entrepôt" FontSize="24" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center"/>
+                            <Grid Width="400" Height="200">
+                                <Path x:Name="BackgroundArc" Stroke="LightGray" StrokeThickness="20" Fill="Transparent" Margin="0,30,0,-30">
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathFigure StartPoint="10,190">
+                                                <ArcSegment Point="390,190" Size="190,190" SweepDirection="Clockwise"/>
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                                <Path x:Name="ProgressArc" StrokeThickness="20" Fill="Transparent" Margin="0,30,0,-30">
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathFigure x:Name="ProgressFigure" StartPoint="10,190">
+                                                <ArcSegment x:Name="ProgressSegment" Point="10,190" Size="190,190" SweepDirection="Clockwise"/>
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock x:Name="TotalPlantesText" FontSize="20" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center"/>
+                                    <TextBlock x:Name="PercentageText" FontSize="16" Foreground="Black" HorizontalAlignment="Center"/>
+                                </StackPanel>
+
+                                <!-- Bouton "Modifier Capacité" au milieu -->
+                                <Button Content="Modifier Capacité" HorizontalAlignment="Center"  Background="White" VerticalAlignment="Center" Margin="0,70,0,0" Click="Button_Click"/>
+
+                                <TextBox x:Name="Ncapacite"   HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,164,0,0" Height="26" Width="158">
+                                    <TextBox.Style>
+                                        <Style TargetType="TextBox">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="TextBox">
+                                                        <Grid>
+                                                            <ScrollViewer x:Name="PART_ContentHost" Background="{TemplateBinding Background}" />
+                                                            <TextBlock x:Name="PlaceholderText" Text="Saisir la capacité max..." FontSize="14" Foreground="LightGray" 
+                                            Margin="5,2,0,0" Visibility="Collapsed" IsHitTestVisible="False"/>
+                                                        </Grid>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="Text" Value="">
+                                                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </TextBox.Style>
+                                </TextBox>
+                            </Grid>
                         </StackPanel>
+
                     </Border>
-                    <Border Background="White" CornerRadius="10" Padding="30" Margin="10" Width="500">
-                        <StackPanel>
-                            <TextBlock Text="Plantes Inactif" FontSize="24" FontWeight="Bold" Foreground="#333" Margin="0,0,0,10"/>
-                            <TextBlock x:Name="totalInactif" FontSize="50" FontWeight="Bold" Foreground="red" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock.Text>
-                                    <MultiBinding StringFormat="{}{0}">
-                                        <Binding Path="CountInactif"/>
-                                    </MultiBinding>
-                                </TextBlock.Text>
-                            </TextBlock>
-                        </StackPanel>
-                    </Border>
+
+
+
                 </StackPanel>
 
                 <!-- Actions rapides -->

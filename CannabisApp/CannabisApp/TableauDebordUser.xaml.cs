@@ -69,12 +69,12 @@ namespace CannabisApp
 
         private void AjouterPlante_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AjouterPlante());
+            NavigationService.Navigate(new AjouterPlante(Username, 2));
         }
 
         private void AccederInventaire_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new PageInventaire());
+            NavigationService.Navigate(new PageInventaire(Username, 2));
         }
 
         private void VoirHistorique_Click(object sender, RoutedEventArgs e)

@@ -20,10 +20,14 @@ namespace CannabisApp
 {
     public partial class AjouterUtilisateur : Page
     {
+        string Nom;
+        int Num;
         private readonly AppDbContext _context;
 
-        public AjouterUtilisateur()
+        public AjouterUtilisateur(int num, string nom)
         {
+            Num = num;
+            Nom = nom;
             InitializeComponent();
             _context = new AppDbContext();
             LoadRoles();
@@ -109,12 +113,19 @@ namespace CannabisApp
         }
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new GererUser(Num, Nom));
         }
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
-            //NavigationService.Navigate(new TableauDebordUser());
+            if (Num == 1)
+            {
+                NavigationService.Navigate(new TableauDeBord(Nom));
+            }
+            else
+            {
+                NavigationService.Navigate(new TableauDebordUser(Nom));
+            }
         }
         
         private void RoleComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

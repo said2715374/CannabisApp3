@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\louni\OneDrive\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\
+C:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\
 CannabisApp
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\louni\OneDrive\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\App.xaml
-20-1498334398
+C:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\App.xaml
+212128940542
 
-38-1316583663
-243-791673267
-AjouterEmplacement.xaml;AjouterPlante.xaml;AjouterProvenance.xaml;AjouterUtilisateur.xaml;Archive.xaml;DetailsPlante.xaml;DetailsUser.xaml;GererUser.xaml;HisPlantes.xaml;HistoriquePlantePage.xaml;ImportPage.xaml;MainWindow.xaml;ModifierPlante.xaml;ModifierUtilisateur.xaml;PageConnexion.xaml;PageInventaire.xaml;RetirerPlante.xaml;TableauDeBord.xaml;TableauDebordUser.xaml;Window1.xaml;
+40-777647315
+243-1467675379
+AjouterEmplacement.xaml;AjouterPlante.xaml;AjouterProvenance.xaml;AjouterUtilisateur.xaml;Archive.xaml;DetailsPlante.xaml;DetailsUser.xaml;GererUser.xaml;HisPlantes.xaml;HistoriquePlantePage.xaml;HistoriqueUtilisateur.xaml;ImportPage.xaml;MainWindow.xaml;ModifierPlante.xaml;ModifierUtilisateur.xaml;PageConnexion.xaml;PageInventaire.xaml;RetirerPlante.xaml;TableauDeBord.xaml;TableauDebordUser.xaml;Window1.xaml;
 
 True
 

@@ -6,9 +6,13 @@ namespace CannabisApp
     public partial class AjouterEmplacement : Page
     {
         private readonly AppDbContext _context;
+        int Num;
+        string Nom;
 
-        public AjouterEmplacement()
+        public AjouterEmplacement(string name, int num)
         {
+            Num = num;
+            Nom = name;
             InitializeComponent();
             _context = new AppDbContext();
 
@@ -82,7 +86,7 @@ namespace CannabisApp
                     }
                 }
 
-                NavigationService.GoBack();
+                NavigationService.Navigate(new AjouterPlante(Nom, Num ));
 
             }
             catch (Exception ex)

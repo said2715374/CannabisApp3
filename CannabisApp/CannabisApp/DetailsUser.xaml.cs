@@ -4,21 +4,26 @@ using System.Data.SqlClient;
 using System.Windows.Controls;
 using Microsoft.VisualBasic.ApplicationServices;
 using DocumentFormat.OpenXml.Spreadsheet;
+using System;
 
 namespace CannabisApp
 {
     public partial class DetailsUser : System.Windows.Controls.Page
     {
+        
         string NomUtilisateur;
         string NomRole;
         int idUser;
+        int Type;
         private readonly AppDbContext _context;
-        public DetailsUser(int iduser)
+        public DetailsUser(int iduser, int type, string UserName )
         {
             InitializeComponent();
             LoadUtilisateurDetails(iduser);
             _context = new AppDbContext();
             idUser = iduser;
+            Type = type;
+            NomUtilisateur = UserName;
             
             // Set the details of the selected user
             //NomUtilisateurText.Text = selectedUser.nom_utilisateur;
@@ -30,7 +35,7 @@ namespace CannabisApp
         private void LoadUtilisateurDetails(int idUtilisateur)
         {
             string connectionString = "Server=LAPTOP-K1T841TP\\SQLEXPRESS;Database=NomDeLaBaseDeDonnées;Trusted_Connection=True;";
-            Utilisateur utilisateur = null;
+            
             roles role = null;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -45,8 +50,8 @@ namespace CannabisApp
                                r.nom_role
                         FROM Utilisateurs u
                         INNER JOIN Roles r ON u.id_role = r.id_role
-                        WHERE u.id_utilisateur = @idUtilisateur"; 
-
+                        WHERE u.id_utilisateur = @idUtilisateur";
+                    Utilisateur utilisateurs = null;
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@idUtilisateur", idUtilisateur);
 
@@ -54,7 +59,7 @@ namespace CannabisApp
 
                     if (reader.Read())
                     {
-                        utilisateur = new Utilisateur
+                       utilisateurs = new Utilisateur
                         {
                             IdUtilisateur = reader.GetInt32(reader.GetOrdinal("id_utilisateur")),
                             NomUtilisateur = reader.GetString(reader.GetOrdinal("nom_utilisateur")),
@@ -67,7 +72,7 @@ namespace CannabisApp
                         };
 
                         // Mettre à jour les contrôles TextBlock avec les informations récupérées
-                        NomUtilisateurText.Text = utilisateur.NomUtilisateur.ToString();
+                        NomUtilisateurText.Text = utilisateurs.NomUtilisateur.ToString();
 
                         RoleText.Text = role.nom_role.ToString();
 
@@ -89,19 +94,26 @@ namespace CannabisApp
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new GererUser(Type,NomUtilisateur));
         }
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
-            //NavigationService.Navigate(new TableauDebordUser());
+            if (Type == 1)
+            {
+                NavigationService.Navigate(new TableauDeBord(NomUtilisateur));
+            }
+            else
+            {
+                NavigationService.Navigate(new TableauDebordUser(NomUtilisateur));
+            }
         }
 
         private void Modifier_Click(object sender, RoutedEventArgs e)
         {
             if (Application.Current.MainWindow is MainWindow mainWindow)
             {
-                mainWindow.MainFrame.Navigate(new ModifierUtilisateur(idUser));
+                mainWindow.MainFrame.Navigate(new ModifierUtilisateur(idUser, Type, NomUtilisateur));
             }
 
 
@@ -145,13 +157,16 @@ namespace CannabisApp
         {
             if (Application.Current.MainWindow is MainWindow mainWindow)
             {
-                mainWindow.MainFrame.Navigate(new AjouterUtilisateur());
+                mainWindow.MainFrame.Navigate(new AjouterUtilisateur(Type, NomUtilisateur));
             }
         }
 
         private void VoirHistorique_Click(object sender, RoutedEventArgs e)
         {
-            // Code pour voir l'historique
+            if (Application.Current.MainWindow is MainWindow mainWindow)
+            {
+                mainWindow.MainFrame.Navigate(new HistoriqueUtilisateur(idUser,  Type, NomUtilisateur));
+            }
         }
     }
 }

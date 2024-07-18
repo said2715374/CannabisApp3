@@ -70,6 +70,10 @@
                         <TextBlock Text="Provenance:" Margin="0,0,326,0" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
                         <TextBlock x:Name="IdProvenanceText" Margin="199,0,26,0" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
 
+
+                        <TextBlock Text="Stade:" Margin="5,10,5,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" FontSize="16"/>
+                        <TextBlock x:Name="StadeText" Margin="62,10,110,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
+
                         <TextBlock Text="État de Santé:" Margin="0,0,316,0" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
                         <TextBlock x:Name="EtatSanteText" Margin="139,5,33,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16" Height="26">
                             <TextBlock.Style>
@@ -97,17 +101,12 @@
                             </TextBlock.Style>
                         </TextBlock>
 
-                        <TextBlock Text="Quantité Disponible (kg):" Margin="0,0,268,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
-                        <TextBlock x:Name="NombrePlantesActivesText" Margin="199,0,26,0" Grid.Column="1" VerticalAlignment="Center" FontSize="16" Grid.Row="1"/>
 
                         <TextBlock Text="Date d'Ajout:" Margin="0,8,316,0" Grid.Row="2" Grid.Column="0" VerticalAlignment="Top" FontSize="16" Grid.RowSpan="2"/>
-                        <TextBlock x:Name="CreeLeText" Margin="139,15,10,0" Grid.Row="2" VerticalAlignment="Top" FontSize="16" Grid.RowSpan="2" Height="17"/>
+                        <TextBlock x:Name="CreeLeText" Margin="138,0,10,0" Grid.Row="3" VerticalAlignment="Center" FontSize="16" Height="17"/>
 
-                        <TextBlock Text="Date d'Expiration:" Margin="0,0,310,0" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
-                        <TextBlock x:Name="DateExpirationText" Margin="179,0,10,0" Grid.Row="2" VerticalAlignment="Top" FontSize="16" Height="25" Grid.Column="1" Grid.RowSpan="2"/>
 
-                        <TextBlock Text="Stade:" Margin="0,15,10,15" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
-                        <TextBlock x:Name="StadeText" Margin="139,0,33,0" Grid.Row="3" VerticalAlignment="Center" FontSize="16"/>
+
 
                         <TextBlock Text="Identification:" Margin="0,0,348,0" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
                         <TextBlock x:Name="IdentificationText" Margin="179,19,18,0" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" FontSize="16"/>

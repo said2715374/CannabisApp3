@@ -43,11 +43,11 @@
 
                 <DataGrid x:Name="HistoriqueDataGrid" AutoGenerateColumns="False" Width="1000" Height="500" Margin="0,10,0,10" IsReadOnly="True" SelectionChanged="HistoriqueDataGrid_SelectionChanged">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="ID Historique" Binding="{Binding IdHistorique}" Width="Auto"/>
-                        <DataGridTextColumn Header="ID Plante" Binding="{Binding IdPlante}" Width="Auto"/>
-                        <DataGridTextColumn Header="Action" Binding="{Binding Action}" Width="*"/>
-                        <DataGridTextColumn Header="Timestamp" Binding="{Binding Timestamp}" Width="Auto"/>
-                        <DataGridTextColumn Header="ID Utilisateur" Binding="{Binding IdUtilisateur}" Width="Auto"/>
+                        <DataGridTextColumn x:Name="IdHistorique" Header="ID Historique" Binding="{Binding Path=id_historique}" Width="Auto"/>
+                        <DataGridTextColumn x:Name="Plante" Header="ID Plante" Binding="{Binding Path=Identification}" Width="Auto"/>
+                        <DataGridTextColumn x:Name="Action" Header="Action" Binding="{Binding Path=action}" Width="*"/>
+                        <DataGridTextColumn x:Name="Time" Header="Timestamp" Binding="{Binding Path=timestamp}" Width="Auto"/>
+                        <DataGridTextColumn x:Name="utilisateur" Header="ID Utilisateur" Binding="{Binding Path=nom_utilisateur}" Width="Auto"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

@@ -13,6 +13,7 @@ namespace CannabisApp
         public DbSet<Historique_Plantes> HistoriquePlantes { get; set; }
         public DbSet<Roles> Roles { get; set; }
         public DbSet<Roles> Enterposage { get; set; }
+        public DbSet<capacite> Capacites { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -26,6 +27,7 @@ namespace CannabisApp
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Provenances>().HasKey(p => p.IdProvenance);
+            modelBuilder.Entity<capacite>().HasKey(c => c.id);
             modelBuilder.Entity<Historique_Plantes>().HasKey(h => h.IdHistorique);
             modelBuilder.Entity<Historique_Plantes>()
                 .HasOne<Utilisateur>()
@@ -94,8 +96,8 @@ namespace CannabisApp
     public class Plantes
     {
         public int IdPlante { get; set; }
-       
-        
+
+        public int Capacite { get; set; }
         public string CodeQr { get; set; }
         public int IdProvenance { get; set; }
         public Provenances Provenance { get; set; } // Propriété de navigation
@@ -119,5 +121,10 @@ namespace CannabisApp
     {
         public int IdRole { get; set; }
         public string NomRole { get; set; }
+    }
+    public class capacite
+    {
+        public int id { get; set; }
+        public int ccapacite { get; set; }
     }
 }

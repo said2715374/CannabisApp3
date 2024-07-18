@@ -12,6 +12,9 @@ namespace CannabisApp
     {
         public int IdHistorique { get; set; }
         public int IdPlante { get; set; }
+        public string initial { get; set; }
+        public string final { get; set; }
+
         public string Action { get; set; }
         public DateTime Timestamp { get; set; }
         public int IdUtilisateur { get; set; }

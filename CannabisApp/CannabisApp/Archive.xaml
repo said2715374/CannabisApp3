@@ -43,10 +43,10 @@
 
                 <DataGrid x:Name="ArchiveDataGrid" AutoGenerateColumns="False" Width="1000" Height="500" Margin="0,10,0,10" IsReadOnly="True" SelectionChanged="ArchiveDataGrid_SelectionChanged">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="ID Plante" Binding="{Binding IdPlante}" Width="Auto"/>
-                        <DataGridTextColumn Header="Identification" Binding="{Binding Identification}" Width="Auto"/>
-                        <DataGridTextColumn Header="Responsable de Destruction" Binding="{Binding ResponsableDestruction}" Width="Auto"/>
-                        <DataGridTextColumn Header="Raison de Retrait" Binding="{Binding RaisonRetrait}" Width="*"/>
+                        <DataGridTextColumn Header="ID Plante" Binding="{Binding Path=id_plante}" Width="Auto"/>
+                        <DataGridTextColumn Header="Identification" Binding="{Binding Path=Identification}" Width="Auto"/>
+                        <DataGridTextColumn Header="Responsable de Destruction" Binding="{Binding Path=nom_utilisateur}" Width="Auto"/>
+                        <DataGridTextColumn Header="Raison de Retrait" Binding="{Binding Path=action}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

@@ -13,14 +13,18 @@ namespace CannabisApp
 {
     public partial class PageInventaire : Page
     {
+        int Num;
+        string Nom;
         private readonly AppDbContext _context;
         private List<Plantes> _allPlantes;
         private ObservableCollection<plantes> _plantesCollection;
         private int _currentPage = 1;
         private const int PageSize = 4;
 
-        public PageInventaire()
+        public PageInventaire(string nom, int type)
         {
+            this.Nom = nom;
+            Num = type;
             InitializeComponent();
 
             _context = new AppDbContext();
@@ -38,7 +42,7 @@ namespace CannabisApp
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "SELECT * FROM plantes";
+                    string query = "SELECT * FROM plantes WHERE nombre_plantes_actives = 1";
                     SqlCommand command = new SqlCommand(query, connection);
 
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -55,10 +59,8 @@ namespace CannabisApp
                                 id_provenance = reader.GetInt32(reader.GetOrdinal("id_provenance")),
                                 etat_sante = reader.GetInt32(reader.GetOrdinal("etat_sante")),
                                 nombre_plantes_actives = reader.GetBoolean(reader.GetOrdinal("nombre_plantes_actives")),
-                                date_expiration = reader.GetDateTime(reader.GetOrdinal("date_expiration")),
                                 cree_le = reader.GetDateTime(reader.GetOrdinal("cree_le")),
                                 stade = reader.GetString(reader.GetOrdinal("Stade")),
-                                Quentite = reader.GetString(reader.GetOrdinal("Quentité")),
                                 Note = reader.GetString(reader.GetOrdinal("Note")),
                                 
 
@@ -116,7 +118,7 @@ namespace CannabisApp
 
         private void Ajouter_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AjouterPlante());
+            NavigationService.Navigate(new AjouterPlante(Nom,Num));
         }
 
         private void SearchTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -145,23 +147,37 @@ namespace CannabisApp
                 // Naviguer vers la page des détails de la plante
                 if (Application.Current.MainWindow is MainWindow mainWindow)
                 {
-                    mainWindow.MainFrame.Navigate(new DetailsPlante(planteId));
+                    mainWindow.MainFrame.Navigate(new DetailsPlante(planteId, Nom, Num));
                 }
             }
         }
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            if (Num == 1)
+            {
+                NavigationService.Navigate(new TableauDeBord(Nom));
+            }
+            else
+            {
+                NavigationService.Navigate(new TableauDebordUser(Nom));
+            }
         }
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (Num == 1)
+            {
+                NavigationService.Navigate(new TableauDeBord(Nom));
+            }
+            else
+            {
+                NavigationService.Navigate(new TableauDebordUser(Nom));
+            }
         }
         private void Archive_Click(object sender, RoutedEventArgs e)
         {
             // Navigation vers la page des archives
-            NavigationService.Navigate(new Archive());
+            NavigationService.Navigate(new Archive(Nom, Num));
         }
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)

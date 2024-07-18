@@ -1,7 +1,19 @@
 ﻿
-FC:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\App.xaml;;
-FC:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\MainWindow.xaml;;
-FC:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\PageConnexion.xaml;;
-FC:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\PageTableauDeBordUser.xaml;;
-FC:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\Window1.xaml;;
+
+FC:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\AjouterEmplacement.xaml;;
+FC:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\AjouterPlante.xaml;;
+FC:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\AjouterProvenance.xaml;;
+FC:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\AjouterUtilisateur.xaml;;
+FC:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\DetailsPlante.xaml;;
+FC:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\GererUser.xaml;;
+FC:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\HistoriquePlantePage.xaml;;
+FC:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\ImportPage.xaml;;
+FC:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\ModifierPlante.xaml;;
+FC:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\ModifierUtilisateur.xaml;;
+FC:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\PageConnexion.xaml;;
+FC:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\PageInventaire.xaml;;
+FC:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\RetirerPlante.xaml;;
+FC:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\TableauDeBord.xaml;;
+FC:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\TableauDebordUser.xaml;;
+FC:\Users\user\Documents\GitHub\CannabisApp3\CannabisApp\CannabisApp\Window1.xaml;;
 

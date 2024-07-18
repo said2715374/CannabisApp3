@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CannabisApp"
   ],
-  "SelectedNode": "\\CannabisApp.sln",
+  "SelectedNode": "\\CannabisApp\\AjouterEmplacement.xaml.cs",
   "PreviewInSolutionExplorer": false
 }
